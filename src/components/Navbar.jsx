@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Code2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar = () => {
+const Navbar = ({ onDonate }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -34,7 +34,7 @@ const Navbar = () => {
                 alignItems: 'center'
             }}
         >
-            <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+            <div className="container block md:flex md:justify-between md:items-center" style={{ width: '100%' }}>
                 {/* Logo */}
                 <a href="#" className="flex items-center gap-2 group" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <div className="p-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-subtle)] group-hover:border-[var(--accent-gold)] transition-colors"
@@ -46,8 +46,8 @@ const Navbar = () => {
                     </span>
                 </a>
 
-                {/* Desktop Links */}
-                <div className="hidden md:flex items-center gap-8" style={{ display: 'flex', gap: '2rem' }}>
+                {/* Links */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
@@ -60,22 +60,7 @@ const Navbar = () => {
                             {link.name}
                         </a>
                     ))}
-                    <a
-                        href="#invest"
-                        style={{
-                            padding: '0.75rem 1.5rem',
-                            background: 'var(--accent-gold)',
-                            color: 'var(--bg-primary)',
-                            fontWeight: '600',
-                            borderRadius: '0.25rem', // Slight rounded, "Premium" feel is often sharp or slightly rounded
-                            fontSize: '0.875rem',
-                            transition: 'transform 0.2s'
-                        }}
-                        onMouseOver={(e) => e.target.style.transform = 'translateY(-2px)'}
-                        onMouseOut={(e) => e.target.style.transform = 'translateY(0)'}
-                    >
-                        Tài trợ ngay
-                    </a>
+
                 </div>
             </div>
         </nav>

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
-const Hero = () => {
+const Hero = ({ onDonate }) => {
     return (
         <section
             style={{
@@ -49,7 +49,7 @@ const Hero = () => {
                             background: 'rgba(212, 175, 55, 0.05)'
                         }}
                     >
-                        Dự án gọi vốn cá nhân 2025
+                        Dự án gọi vốn "thật thà" nhất 2025
                     </span>
                 </motion.div>
 
@@ -58,13 +58,14 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     style={{
-                        fontSize: 'clamp(3rem, 8vw, 5rem)',
+                        fontSize: 'clamp(2rem, 5vw, 4.5rem)',
                         marginBottom: '1.5rem',
-                        lineHeight: '1.1'
+                        lineHeight: '1.2',
+                        padding: '0 1rem'
                     }}
                 >
-                    Nghệ Thuật Của <br />
-                    <span className="text-gold" style={{ fontStyle: 'italic' }}>Sự Phát Triển</span>
+                    Nuôi Tôi Đi - <br />
+                    <span className="text-gold" style={{ fontStyle: 'italic' }}>Minh Bạch 300%</span>
                 </motion.h1>
 
                 <motion.p
@@ -80,9 +81,8 @@ const Hero = () => {
                         marginRight: 'auto'
                     }}
                 >
-                    Tôi là một lập trình viên "nghèo" với hoài bão lớn.
-                    Website này không chỉ để xin tài trợ, đó là lời cam kết về sự minh bạch,
-                    nỗ lực và những giá trị tôi sẽ mang lại cho cộng đồng.
+                    Cập nhật sao kê Realtime từng giây! Nhanh hơn cả tốc độ bạn chuyển tiền.
+                    File Excel 4K Ultra HD, soi rõ từng hạt cơm tôi ăn.
                 </motion.p>
 
                 <motion.div
@@ -91,8 +91,8 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                     style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}
                 >
-                    <a
-                        href="#invest"
+                    <button
+                        onClick={onDonate}
                         style={{
                             padding: '1rem 2.5rem',
                             background: 'var(--accent-gold)',
@@ -102,11 +102,12 @@ const Hero = () => {
                             display: 'flex',
                             alignItems: 'center',
                             gap: '0.5rem',
-                            fontSize: '1rem'
+                            fontSize: '1rem',
+                            cursor: 'pointer'
                         }}
                     >
-                        Đầu tư ngay <ArrowRight size={20} />
-                    </a>
+                        Nuôi luôn <ArrowRight size={20} />
+                    </button>
                     <a
                         href="#story"
                         style={{
@@ -127,7 +128,7 @@ const Hero = () => {
                             e.target.style.borderColor = 'var(--border-subtle)';
                         }}
                     >
-                        Tìm hiểu thêm
+                        Xem sao kê
                     </a>
                 </motion.div>
             </div>
@@ -136,6 +137,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}
+                className="hidden md:flex"
                 style={{
                     position: 'absolute',
                     bottom: '2rem',
@@ -149,7 +151,7 @@ const Hero = () => {
                     fontSize: '0.875rem'
                 }}
             >
-                <span>Cuộn xuống</span>
+                {/* <span>Cuộn xuống xem bảng chi tiêu</span> */}
                 <ChevronDown className="animate-bounce" size={20} />
             </motion.div>
         </section>
